@@ -12,20 +12,8 @@ A simple and lightweight Todo app built with **React.js**, featuring task manage
 - **React.js** ⚛️
 - **CSS** for styling 🎨
 - **LocalStorage** for data persistence 📂
-- **Vite** (for fast development) ⚡
-
-## 📂 Project Structure
-## Project Structure
-/src
-├── components
-│   ├── DateTime
-│   ├── TodoForm
-│   └── TodoList
-├── utils
-│   └── localStorage.js
-├── App.js
-└── index.js
-```
+- **Vite** (for fast development)
+  
 
 ## Contributing
 
