@@ -1,4 +1,4 @@
-# React Todo List App
+# React To-do List App
 
 A feature-rich todo list application built with React that persists data in local storage.
 
