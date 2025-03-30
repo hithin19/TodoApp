@@ -37,10 +37,10 @@ const Todo = () => {
 
   //if both  key and value are same we can write it once ok
   // {id:id} ====>{id}
-  const handleDeletetask = (value) => {
+  const handleDeletetask = (id) => {
     // console.log(task);
     // console.log(value);
-    const updatedTask = task.filter((currtask) => currtask.content  !== value);
+    const updatedTask = task.filter(currtask => currtask.id !== id);
     setTask(updatedTask);
   };
 
@@ -48,16 +48,20 @@ const Todo = () => {
     setTask([]);
   };
 
-const handleChecktodo = (content) => {
-  const updatedTASK = task.map((currtask) => {
-    if (currtask.content === content) {
-      return { ...currtask, checked: !currtask.checked };
-    } else {
-      return currtask;
-    }
-  });
-  setTask(updatedTASK);
-};
+  const handleEditTasks = (id, newContent) => {
+    const updatedTasks = task.map(task => 
+      task.id === id ? { ...task, content: newContent } : task
+    );
+    setTask(updatedTasks);
+  };
+
+  const handleChecktodo = (id) => {
+    const updatedTASK = task.map(currtask => 
+      currtask.id === id ? { ...currtask, checked: !currtask.checked } : currtask
+    );
+    setTask(updatedTASK);
+  };
+
 
 
   return (
@@ -75,10 +79,12 @@ const handleChecktodo = (content) => {
             return (
               <TodoList
                 key={currTask.id}
+                id={currTask.id}
                 data={currTask.content}
                 checked={currTask.checked}
                 onHandledelete={handleDeletetask}
                 onHandleCheck={handleChecktodo}
+                onHandleEdit={handleEditTasks}
               />
             );
           })}

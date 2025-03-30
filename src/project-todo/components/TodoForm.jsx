@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
 
 export const TodoForm = ({ onAddTask }) => {
+  // Use a single string state for input value
+  const [inputValue, setInputValue] = useState('');
 
-  const [inputValue, setInputValue] = useState({
-    id: '',
-    content: '',
-    checked: false
-  });
-
-  const handleInputChange = (value) => {
-    setInputValue({ id: value, content: value, checked: false });
+  const handleInputChange = (event) => {
+    // Directly update with the input value
+    setInputValue(event.target.value);
   };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    onAddTask(inputValue)
-    setInputValue({ id: "", content: "", checked: false })
-  }
-
+    
+    // Validate input
+    if (!inputValue.trim()) return;
+    
+    // Create new task object
+    const newTask = {
+      id: Date.now().toString(), // Generate unique ID
+      content: inputValue.trim(),
+      checked: false
+    };
+    
+    // Pass to parent component
+    onAddTask(newTask);
+    
+    // Reset input field
+    setInputValue('');
+  };
 
   return (
     <section className="form">
@@ -26,8 +37,8 @@ export const TodoForm = ({ onAddTask }) => {
             type="text"
             className="todo-input"
             autoComplete="off"
-            value={inputValue.content}
-            onChange={(event) => handleInputChange(event.target.value)}
+            value={inputValue}  // Use direct string value
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -37,8 +48,5 @@ export const TodoForm = ({ onAddTask }) => {
         </div>
       </form>
     </section>
-
-
-  )
-}
-
+  );
+};

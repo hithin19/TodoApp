@@ -217,3 +217,32 @@
     background-color: #8d1407;
   } 
   
+
+ /* Add these styles */
+.edit-input {
+  padding: 8px;
+  margin-right: 8px;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+}
+
+.save-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}

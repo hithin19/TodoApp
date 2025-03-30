@@ -23,5 +23,6 @@ section {
   background-image: linear-gradient(100deg, #001214, #001f29);
   color: rgb(0, 0, 0);
   transition: 0.3s linear;
+  gap:40px;
 }
 
